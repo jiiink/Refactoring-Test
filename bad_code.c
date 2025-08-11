@@ -6,7 +6,7 @@ typedef struct {
     int c;
 } ProgramData;
 
-static void process_items(const char *message, size_t count) {
+void process_items(const char *message, size_t count) {
     for (size_t i = 0; i < count; ++i) {
         printf("Processing: %s - %zu\n", message, i);
         if (i % 2 == 0) {
@@ -20,14 +20,14 @@ static void process_items(const char *message, size_t count) {
     }
 }
 
-static void print_program_data(const ProgramData *data) {
+void print_program_data(const ProgramData *data) {
     if (data == NULL) {
         return;
     }
     printf("a=%d, b=%d, c=%d\n", data->a, data->b, data->c);
 }
 
-int main(void) {
+int run_application(void) {
     // 안전한 문자열 처리: 버퍼 크기를 초과하지 않도록 보장
     char buffer[16];
     const char *source = "ThisIsTooLongForBuffer";
